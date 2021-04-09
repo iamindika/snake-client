@@ -12,26 +12,15 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8');
   
+  conn.on('connect', () => {
+    conn.write(WHOAMI);
+    // conn.write('Say: This is fun!');
+    console.log('Successfully connected to game server');
+  });
+
   conn.on('data', (data) => {
-    console.log(data);
-  })
-
-  return conn;
-  
-  // conn.on('connect', () => {
-  //   conn.write(WHOAMI);
-  //   conn.write('Say: This is fun!');
-  //   console.log('Successfully connected to game server');
-  // });
-
-  // conn.on('connect', () => { 
-    
-  
-    
-  // })
-  // conn.on('data', (data) => {
-  //   console.log('Server says: ', data);
-  // });
+    console.log('Server says: ', data);
+  });
   
   return conn;
 };

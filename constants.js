@@ -5,7 +5,7 @@
 
 const IP = 'localhost';
 const PORT = 50541;
-const WHOAMI = 'Name: IKT';
+const WHOAMI = 'Name: OWL';
 const MOVE_UP_KEY = 'Move: up';
 const MOVE_DOWN_KEY = 'Move: down';
 const MOVE_LEFT_KEY = 'Move: left';
