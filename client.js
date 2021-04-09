@@ -13,9 +13,18 @@ const connect = function() {
   conn.setEncoding('utf8');
   
   conn.on('connect', () => {
-    conn.write(WHOAMI);
-    // conn.write('Say: This is fun!');
     console.log('Successfully connected to game server');
+
+    conn.write(WHOAMI);
+
+    // for (let i = 0; i <= 10; i++) {
+      setInterval(() => {
+        conn.write('Move: up');
+      }, 300)
+    // }
+
+    // conn.write('Say: This is fun!');
+    
   });
 
   conn.on('data', (data) => {
