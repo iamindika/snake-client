@@ -1,12 +1,10 @@
 const { MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants');
-//let connection;
 
 /**
  * Setup User Interface 
  * Specifically, so that we can handle user input via stdin
  */
 const setupInput = (conn) => {
-  //connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode('true');
   stdin.setEncoding('utf-8');
@@ -17,24 +15,35 @@ const setupInput = (conn) => {
   return stdin;
 }
 
+const moveSnake = (conn, move) => {
+  return setInterval(() => {
+    conn.write(move);
+  }, 300)
+};
+
 const handleUserInput = (inputConn, serverConn) => {
-  //process.stdout.write('.');
+  let intervalId = moveSnake(serverConn, MOVE_UP_KEY);
+
   inputConn.on('data', (key) => {
     switch (key) {
       case '\u0003':
         process.exit();
         break;
       case 'w':
-        serverConn.write(MOVE_UP_KEY);
+        clearInterval(intervalId);
+        intervalId = moveSnake(serverConn, MOVE_UP_KEY);
         break;
       case 'a':
-        serverConn.write(MOVE_LEFT_KEY);
+        clearInterval(intervalId);
+        intervalId = moveSnake(serverConn, MOVE_LEFT_KEY);
         break;
       case 's':
-        serverConn.write(MOVE_DOWN_KEY);
+        clearInterval(intervalId);
+        intervalId = moveSnake(serverConn, MOVE_DOWN_KEY);
         break;
       case 'd':
-        serverConn.write(MOVE_RIGHT_KEY);
+        clearInterval(intervalId);
+        intervalId = moveSnake(serverConn, MOVE_RIGHT_KEY);
         break;
       case 'i':
         serverConn.write(MESSAGES['i']);
@@ -52,26 +61,6 @@ const handleUserInput = (inputConn, serverConn) => {
         break;
     }
   })
-
-  // if (key === 'w') {
-  //   connection.write(MOVE_UP_KEY);
-  // }
-
-  // if (key === 's') {
-  //   connection.write(MOVE_DOWN_KEY);
-  // }
-  
-  // if (key === 'a') {
-  //   connection.write(MOVE_LEFT_KEY);
-  // }
-  
-  // if (key === 'd') {
-  //   connection.write(MOVE_RIGHT_KEY);
-  // }
-
-  // if (MESSAGES[key]) {
-  //   connection.write(MESSAGES[key]);
-  // }
 };
 
 module.exports = { setupInput };

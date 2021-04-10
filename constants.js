@@ -1,8 +1,3 @@
-// Still need to implement:
-// Player Initials, 
-// WASD as constants like MOVE_UP_KEY,
-// Key mappings to messages: player presses {x: y}
-
 const IP = 'localhost';
 const PORT = 50541;
 const MOVE_UP_KEY = 'Move: up';
