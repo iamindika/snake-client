@@ -36,6 +36,18 @@ const handleUserInput = (inputConn, serverConn) => {
       case 'd':
         serverConn.write('Move: right');
         break;
+      case 'i':
+        serverConn.write('Say: Soom Soom');
+        break;
+      case 'j':
+        serverConn.write('Say: Boop');
+        break;
+      case 'k':
+        serverConn.write('Say: Yum');
+        break;
+      case 'l':
+        serverConn.write('Say: SsnacksS');
+        break;
       default:
         break;
     }
