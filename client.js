@@ -17,9 +17,9 @@ const connect = function() {
 
     conn.write(WHOAMI);
 
-    setInterval(() => {
-      conn.write('Move: up');
-    }, 300)
+    // setInterval(() => {
+    //   conn.write('Move: up');
+    // }, 300)
 
     // conn.write('Say: This is fun!');
     
