@@ -5,24 +5,21 @@
 
 const IP = 'localhost';
 const PORT = 50541;
-const WHOAMI = 'Name: OWL';
 const MOVE_UP_KEY = 'Move: up';
 const MOVE_DOWN_KEY = 'Move: down';
 const MOVE_LEFT_KEY = 'Move: left';
 const MOVE_RIGHT_KEY = 'Move: right';
 const MESSAGES = {
-  g: 'Say: SSSnappy',
-  h: 'Say: Deliciousss',
-  j: 'Say: SS Zoom Zoom',
-  h: 'Say: Ssay My Name',
-  k: 'Say: INDIIKSSSS'
+  i: 'Say: Soom Soom',
+  j: 'Say: Boop',
+  k: 'Say: Yum',
+  l: 'Say: SsnacksS'
 }
 
 
 module.exports = { 
   IP,
   PORT,
-  WHOAMI,
   MOVE_UP_KEY,
   MOVE_DOWN_KEY,
   MOVE_LEFT_KEY,

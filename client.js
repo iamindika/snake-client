@@ -1,5 +1,6 @@
 const net = require('net');
-const { IP, PORT, WHOAMI } = require('./constants');
+const { IP, PORT } = require('./constants');
+const [ name ] = process.argv.slice(2);
 
 /**
  * Establishes connection with the game server
@@ -15,7 +16,7 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
 
-    conn.write(WHOAMI);
+    conn.write(`Name: ${name}`);
 
     // setInterval(() => {
     //   conn.write('Move: up');

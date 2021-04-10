@@ -1,4 +1,4 @@
-// const { MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants');
+const { MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants');
 //let connection;
 
 /**
@@ -25,28 +25,28 @@ const handleUserInput = (inputConn, serverConn) => {
         process.exit();
         break;
       case 'w':
-        serverConn.write('Move: up');
+        serverConn.write(MOVE_UP_KEY);
         break;
       case 'a':
-        serverConn.write('Move: left');
+        serverConn.write(MOVE_LEFT_KEY);
         break;
       case 's':
-        serverConn.write('Move: down');
+        serverConn.write(MOVE_DOWN_KEY);
         break;
       case 'd':
-        serverConn.write('Move: right');
+        serverConn.write(MOVE_RIGHT_KEY);
         break;
       case 'i':
-        serverConn.write('Say: Soom Soom');
+        serverConn.write(MESSAGES['i']);
         break;
       case 'j':
-        serverConn.write('Say: Boop');
+        serverConn.write(MESSAGES['j']);
         break;
       case 'k':
-        serverConn.write('Say: Yum');
+        serverConn.write(MESSAGES['k']);
         break;
       case 'l':
-        serverConn.write('Say: SsnacksS');
+        serverConn.write(MESSAGES['l']);
         break;
       default:
         break;
